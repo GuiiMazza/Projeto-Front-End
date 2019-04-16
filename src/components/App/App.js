@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import {Card, GlobalStyle} from './StyledApp';
-import Header from '../Card/Header';
-import News from '../RedLine/News';
-import Button from '../Button/Button'
+import {Card, GlobalStyle, Button} from './App.styles';
+import Header from '../Header';
+import News from '../News';
 
 class App extends Component {
   render() {
@@ -12,7 +11,7 @@ class App extends Component {
         <Card>
           <Header />
           <News />
-          <Button />
+          <Button>Mostrar mais</Button>
         </Card>
       </Fragment>
     );

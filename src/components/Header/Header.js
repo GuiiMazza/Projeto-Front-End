@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import {Noticias, HeaderContent} from './StyledHeader';
-import {FilterMenu} from './StyledHeader';
+import {Notices, HeaderContent} from './Header.styles';
+import {FilterMenu} from './Header.styles';
 
 class Header extends Component {
 
   render() {
     return (
       <HeaderContent>
-        <Noticias>Notícias</Noticias> 
+        <Notices>Notícias</Notices> 
         <FilterMenu>
           <option>Filtrar por fonte</option>
           <option>Fonte A</option>

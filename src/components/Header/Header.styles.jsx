@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Noticias = styled.h1`
+export const Notices = styled.h1`
     color: #009DFF;
     font-family: Roboto;
     font-weight: 500;

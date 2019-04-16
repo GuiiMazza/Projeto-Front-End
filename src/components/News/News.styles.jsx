@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const MancheteBox = styled.div`
+export const HeadlineBox = styled.div`
     margin: 0px 0px 24.69px 0px;
     color: #4E4E4E;
     display: flex;
@@ -11,7 +11,7 @@ export const MancheteBox = styled.div`
     align-itens: flex-start;
 
 `;
-export const MancheteTitle = styled.h1`
+export const HeadlineTitle = styled.h1`
     margin: 0px 0px 25px 0px;
     font-family: Roboto;
     line-height: 28px;
@@ -19,7 +19,7 @@ export const MancheteTitle = styled.h1`
     font-size: 24px;
 `;
 
-export const MancheteTags = styled.div`
+export const HeadlineTags = styled.div`
     height: 24px;
     font-size: 20px;
     color: #A4A4A4;
@@ -30,7 +30,7 @@ export const MancheteTags = styled.div`
     align-itens: center;
 `;
 
-export const MancheteDate = styled.div`
+export const HeadlineDate = styled.div`
     font-family: Roboto;
     font-size: 20px;
     font-weight: 400;
