@@ -17,6 +17,7 @@ export const HeadlineTitle = styled.h1`
     line-height: 28px;
     font-weight: 500;
     font-size: 24px;
+    white-space: nowrap;
 `;
 
 export const HeadlineTags = styled.div`
