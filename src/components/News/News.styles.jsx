@@ -5,7 +5,6 @@ export const HeadlineBox = styled.div`
     color: #4E4E4E;
     display: flex;
     border-bottom: 2px solid #A4A4A4;
-    height: 91.31px;
     flex-direction:column;
     justify-content: flex-start;
     align-itens: flex-start;
@@ -18,6 +17,9 @@ export const HeadlineTitle = styled.h1`
     font-weight: 500;
     font-size: 24px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
 `;
 
 export const HeadlineTags = styled.div`

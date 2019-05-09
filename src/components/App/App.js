@@ -8,16 +8,20 @@ class App extends Component {
   state = {
     news: {},
     filters: {},
+    pagination: 1,
   }
 
   componentWillMount() {
-    fetch('https://newsapi.org/v2/everything?q=bitcoin&from=2019-04-08&sortBy=publishedAt&apiKey=35440d07648e430bbf3aad8c32c0b8a5', {apikey: '35440d07648e430bbf3aad8c32c0b8a5' })
+    fetch('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=35440d07648e430bbf3aad8c32c0b8a5', {apikey: '35440d07648e430bbf3aad8c32c0b8a5' })
     .then(res => res.json())
     .then((data) => {
-      console.log(data)
       this.setState({ news: data, filters: data})
     })
     .catch(console.log)
+  }
+ 
+   showButton = () => {
+    this.setState({pagination: this.state.pagination + 1});
   }
 
   render() {
@@ -26,8 +30,8 @@ class App extends Component {
         <GlobalStyle />
         <Card>
           <Header filters={this.state.filters} />
-          <News news={this.state.news}/>
-          <Button>Mostrar mais</Button>
+          <News news={this.state.news} pagination={this.state.pagination}/>
+          <Button onClick={this.showButton}>Mostrar mais</Button>
         </Card>
       </Fragment>
     );
