@@ -5,14 +5,29 @@ import PropTypes from 'prop-types';
 
 class Header extends Component {
 
+  state ={
+    sources: [],
+  }
+
+  componentWillMount() {
+    fetch('https://newsapi.org/v2/sources?apiKey=35440d07648e430bbf3aad8c32c0b8a5', {apikey: '35440d07648e430bbf3aad8c32c0b8a5' })
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({ sources: data.sources})
+    })
+    .catch(console.log)
+  }
+
+  
+
   render() {
     return (
       <HeaderContent>
         <Notices>Notícias</Notices>
-          <FilterMenu>
+          <FilterMenu onChange={this.props.onFilter}>
             <option>Filtrar por fonte</option>
-            {this.props.filters.articles && this.props.filters.articles.map((filter) => (
-              <option>{filter.source.name}</option>  
+            {this.state.sources.map((source) => (
+              <option value={source.id} key={source.id}>{source.name}</option>  
             ))}
           </FilterMenu>
           
@@ -22,8 +37,14 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  filters: PropTypes.object
+  filters: PropTypes.object,
+  onFilter: PropTypes.func,
 };
+
+Header.defaultProps={
+  onFilter: () => {},
+}
+
 
 export default Header;
 

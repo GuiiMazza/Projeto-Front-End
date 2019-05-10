@@ -48,3 +48,9 @@ export const Tag = styled.div`
     margin-left: 20px;
     font_family: Roboto;
 `;
+
+export const StyledLink = styled.a`
+    font-family: Roboto;
+    color: #4E4E4E;
+    
+`;
