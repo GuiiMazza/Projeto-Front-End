@@ -50,7 +50,8 @@ export const Tag = styled.div`
 `;
 
 export const StyledLink = styled.a`
-    font-family: Roboto;
+    font_family: Roboto;
     color: #4E4E4E;
+    text-decoration:none;
     
 `;
