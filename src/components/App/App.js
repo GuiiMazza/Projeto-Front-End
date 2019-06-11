@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import {Card, GlobalStyle, Button} from './App.styles';
+import { Provider } from 'react-redux';
+import store from '../../store';
 import Header from '../Header';
 import News from '../News';
 
@@ -34,14 +36,16 @@ class App extends Component {
   
   render() {
     return (
-      <Fragment>
-        <GlobalStyle />
-        <Card>
-          <Header onFilter={this.changeSource} filters={this.state.filters} />
-          <News source={this.state.source} news={this.state.news} pagination={this.state.pagination}/>
-          <Button onClick={this.showButton}>Mostrar mais</Button>
-        </Card>
-      </Fragment>
+      <Provider store={store}>
+        <Fragment>
+          <GlobalStyle />
+          <Card>
+            <Header />
+            <News source={this.state.source} news={this.state.news} pagination={this.state.pagination}/>
+            <Button onClick={this.showButton}>Mostrar mais</Button>
+          </Card>
+        </Fragment>
+      </Provider>
     );
   }
 }

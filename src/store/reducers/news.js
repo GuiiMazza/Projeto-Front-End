@@ -1,3 +1,6 @@
+import Types from '../action/news';
+
+
 const initialState = {
     news: {},
     filters: {},
@@ -7,10 +10,11 @@ const initialState = {
     
     export default (state = initialState, action) => {
       switch (action.type) {
-        case `NEWS_FATCH_FULFILLED`:
-          return state.merge({
-            news: action.payload.data.entries,
-          });
+        case Types.LOAD_NEWS:
+          return {
+            ...state,
+            articles: state.news.articles,
+          }
         default:
           return state;
       }
