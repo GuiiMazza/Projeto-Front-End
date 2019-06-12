@@ -1,9 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import {Card, GlobalStyle, Button} from './App.styles';
+import { connect } from 'react-redux';
 import { Provider } from 'react-redux';
 import store from '../../store';
 import Header from '../Header';
 import News from '../News';
+import '../../store/action/news'
+import { startNews } from '../../store/action/news';
 
 class App extends Component {
 
@@ -41,7 +44,7 @@ class App extends Component {
           <GlobalStyle />
           <Card>
             <Header />
-            <News source={this.state.source} news={this.state.news} pagination={this.state.pagination}/>
+            <News />
             <Button onClick={this.showButton}>Mostrar mais</Button>
           </Card>
         </Fragment>
@@ -50,4 +53,5 @@ class App extends Component {
   }
 }
 
-export default App;
+
+export default (App);

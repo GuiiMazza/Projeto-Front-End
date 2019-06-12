@@ -1,21 +1,26 @@
-import Types from '../action/news';
-
-
 const initialState = {
-    news: {},
-    filters: {},
-    pagination: 1,
-    source: "",
+    articles: [],
 }
     
-    export default (state = initialState, action) => {
-      switch (action.type) {
-        case Types.LOAD_NEWS:
-          return {
-            ...state,
-            articles: state.news.articles,
-          }
-        default:
-          return state;
+export default function news(state = initialState, action) {
+  switch (action.type) {
+    case 'LOAD_NEWS':
+      return {
+        articles: [],
+        erro: false,
       }
-    };
+
+    case 'SUCCESS_NEWS':
+      return {
+        articles: action.payload.articles,
+        error: false,
+      }
+    case 'ERROR_NEWS':
+      return {
+        articles: [],
+        error: true,
+      }     
+    default:
+      return state;
+  }
+};
