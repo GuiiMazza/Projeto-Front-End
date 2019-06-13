@@ -38,7 +38,6 @@ export const errorNews = () => {
 
 
 export const fetchNews = () => {
-  console.log('aqui')
   return dispatch => {
     fetch('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=35440d07648e430bbf3aad8c32c0b8a5', {apikey: '35440d07648e430bbf3aad8c32c0b8a5' })
     .then(res => res.json())

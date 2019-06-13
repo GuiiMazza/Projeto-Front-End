@@ -17,10 +17,10 @@ componentDidMount() {
   render() {
     return (
       <Fragment>
-        {this.props.news.articles && this.props.news.articles.filter((news) => {return news.source.id === this.props.source || this.props.source === ""}).slice(0, 6 * this.props.pagination).map((news) => (
+        {this.props.news.articles && this.props.news.articles.filter((news) => {return news}).map((news) => (
           <HeadlineBox key={news.source.id+"_"+news.author}>
             <HeadlineTitle>
-              <StyledLink href={news.url}>{news.title}</StyledLink>
+              <StyledLink href={news.url} target="_blank">{news.title}</StyledLink>
             </HeadlineTitle>
             <HeadlineTags>
               <HeadlineDate>

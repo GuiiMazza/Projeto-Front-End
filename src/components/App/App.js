@@ -1,12 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import {Card, GlobalStyle, Button} from './App.styles';
-import { connect } from 'react-redux';
 import { Provider } from 'react-redux';
 import store from '../../store';
 import Header from '../Header';
 import News from '../News';
-import '../../store/action/news'
-import { startNews } from '../../store/action/news';
+import '../../store/action/news';
 
 class App extends Component {
 
@@ -27,9 +25,9 @@ class App extends Component {
   //   .catch(console.log)
   // }
  
-  //  showButton = () => {
-  //   this.setState({pagination: this.state.pagination + 1});
-  // }
+  showButton = () => {
+    this.setState({pagination: this.state.pagination + 1});
+  }
 
   // changeSource = (event) => {
   //   console.log( event.target.value)

@@ -2,23 +2,14 @@ import React, {Component} from 'react';
 import {Notices, HeaderContent} from './Header.styles';
 import {FilterMenu} from './Header.styles';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { fetchFilter } from '../../store/action/header'
 
 class Header extends Component {
 
-  state ={
-    sources: [],
+  componentDidMount() {
+    this.props.onfetchFilter()
   }
-
-  componentWillMount() {
-    fetch('https://newsapi.org/v2/sources?apiKey=35440d07648e430bbf3aad8c32c0b8a5', {apikey: '35440d07648e430bbf3aad8c32c0b8a5' })
-    .then(res => res.json())
-    .then((data) => {
-      this.setState({ sources: data.sources})
-    })
-    .catch(console.log)
-  }
-
-  
 
   render() {
     return (
@@ -26,8 +17,8 @@ class Header extends Component {
         <Notices>Notícias</Notices>
           <FilterMenu onChange={this.props.onFilter}>
             <option>Filtrar por fonte</option>
-            {this.state.sources.map((source) => (
-              <option value={source.id} key={source.id}>{source.name}</option>  
+            {this.props.articles.map((article) => (
+              <option value={article.source.id} key={article.source.id}>{article.source.name}</option>  
             ))}
           </FilterMenu>
           
@@ -45,6 +36,15 @@ Header.defaultProps={
   onFilter: () => {},
 }
 
+const mapDispatchToProps = {
+  onfetchFilter: fetchFilter
+}
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    articles: state.header.articles,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
 
