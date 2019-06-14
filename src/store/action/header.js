@@ -1,6 +1,7 @@
 export const Types = {
   FILTER_SUCCESS: 'FILTER_SUCCESS',
   FILTER_ERROR: 'FILTER_ERROR',
+  SET_FILTER: 'SET_FILTER',
 }
 
 export const filterSuccess = (articles) => {
@@ -20,6 +21,15 @@ export const filterError = () => {
         source: [],
       }],
       error: true,
+    }
+  }
+}
+
+export const setFilter = (filter) => {
+  return {
+    type: 'SET_FILTER',
+    payload: {
+      filter,
     }
   }
 }

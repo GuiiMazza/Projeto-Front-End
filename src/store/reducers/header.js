@@ -1,10 +1,11 @@
 const initialState = {
   articles: [{
-    source: {},
+    source: {}
   }],
+  filter: "",
 }
 
-export default function news(state = initialState, action) {
+export default function header(state = initialState, action) {
   switch (action.type) {
 
     case 'FILTER_SUCCESS':
@@ -18,7 +19,13 @@ export default function news(state = initialState, action) {
           sources: [],
         }],
         error: true,
-      }     
+      }
+
+      case 'SET_FILTER': 
+        return {
+          articles: state.articles,
+          filter: action.payload.filter,
+        }
     default:
       return state;
   }

@@ -3,6 +3,7 @@ export const Types = {
   LOAD_NEWS: 'LOAD_NEWS',
   SUCCESS_NEWS: 'SUCCESS_NEWS',
   ERROR_NEWS: 'ERROR_NEWS',
+  SHOW_BUTTON: 'SHOW_BUTTON',
 }
 
 
@@ -34,6 +35,15 @@ export const errorNews = () => {
       erro: true,
     }
   };
+}
+
+export const showButton = (pagination) => {
+  return {
+    type: 'SHOW_BUTTON',
+    payload: {
+      pagination,
+    }
+  }
 }
 
 
